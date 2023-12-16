@@ -1,16 +1,24 @@
-﻿@page "/"
+@page "/"
 
-<h1>Benvenut*</h1>
+<MudText Align="Align.Center" Typo="Typo.h3">Cosa vuoi preparare?</MudText>
 
-<p>
-    Ciao! Mi chiamo Carla e ho pensato potesse essere utile farti calcolare automaticamente da un'app
-    quanti grammi di acqua necessita il tuo impasto
-    senza glutine per avere una pizza o del pane perfetto!<br /><br />
-    Come ben sappiamo i mix dietoterapici al giorno d'oggi sono veramente tanti, 
-    e ognuno ha delle caratteristiche differenti.<br/>
-    C'è quello che assorbe più acqua e quello che ne assorbe meno...<br /><br />
-    Ma come facciamo a ricordarcelo?<br />
-    Non serve se hai questa fantastica app nel tuo smartphone!<br />
-</p>
-
-<MudButton Color="Color.Primary" Variant="Variant.Filled">Cominciamo!</MudButton>
+<MudContainer Class="flex flex-wrap content-center">
+    <MudCard Class="w-52 m-4">
+        <MudCardMedia Image="images/pizza.png" Height="200" />
+        <MudCardContent>
+            <MudText Align="Align.Center" Typo="Typo.h5">Pizza</MudText>
+        </MudCardContent>
+    </MudCard>
+    <MudCard Class="w-52 m-4">
+        <MudCardMedia Image="images/pane.png" Height="200" />
+        <MudCardContent>
+            <MudText Align="Align.Center" Typo="Typo.h5">Pane</MudText>
+        </MudCardContent>
+    </MudCard>
+    <MudCard Class="w-52 m-4">
+        <MudCardMedia Image="images/dolce.png" Height="200" />
+        <MudCardContent>
+            <MudText Align="Align.Center" Typo="Typo.h5">Dolci</MudText>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>

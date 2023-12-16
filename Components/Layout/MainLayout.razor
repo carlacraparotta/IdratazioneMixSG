@@ -1,5 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
+@inject NavigationManager NavigationManager
+
 <MudThemeProvider/>
 
 <MudLayout>
@@ -8,7 +10,7 @@
         <MudIconButton Icon="@Icons.Material.Filled.Menu" 
                        Color="Color.Inherit" Edge="Edge.Start"
                        OnClick="@((e) => DrawerToggle())" />
-        My Application
+        Idratazione Mix Senza Glutine
     </MudAppBar>
 
     <MudDrawer @bind-Open="@drawerOpen">
@@ -26,4 +28,10 @@
     bool drawerOpen = true;
 
     void DrawerToggle() => drawerOpen = !drawerOpen;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        NavigationManager.NavigateTo("/welcome");
+    }
 }
