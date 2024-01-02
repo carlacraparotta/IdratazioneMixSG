@@ -1,0 +1,52 @@
+@page "/form/{type}"
+
+@using System.Text.Json
+
+@using IdratazioneMixSG.Components.Shared
+
+@if(Type == "pizza") {
+    <MudText Align="Align.Center" Typo="Typo.h3">Seleziona i mix per la tua @Type</MudText>
+
+    <MudButton Color="Color.Primary" Variant="Variant.Filled"
+               OnClick="AddNewIngredient">
+        Aggiungi un mix
+    </MudButton>
+
+    @foreach(var ingredient in Ingredients)
+    {
+        <IngredientBox Mixes="Mixes" />
+    }
+}
+
+@code {
+    [Parameter]
+    public string Type { get; set; } = string.Empty;
+
+    public List<Ingredient> Ingredients = new();
+    public List<Mix> Mixes { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadFromJson();
+    }
+
+    private void AddNewIngredient() => Ingredients.Add(new Ingredient());
+
+    private async Task LoadFromJson()
+    {
+        using var stream = await FileSystem.OpenAppPackageFileAsync("data.json");
+
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
+        if(stream is not null)
+        {
+            var mixes = JsonSerializer.Deserialize<List<Mix>>(stream, options);
+            
+            if(mixes is not null)
+                Mixes = mixes;
+        }
+    }
+}

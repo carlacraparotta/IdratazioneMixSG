@@ -1,24 +1,34 @@
 @page "/"
 
+@inject NavigationManager Navigation
+
 <MudText Align="Align.Center" Typo="Typo.h3">Cosa vuoi preparare?</MudText>
 
 <MudContainer Class="flex flex-wrap content-center">
-    <MudCard Class="w-52 m-4">
+    <MudCard Class="cursor-pointer w-52 m-4" @onclick="@(() => OnCardClick("pizza"))">
         <MudCardMedia Image="images/pizza.png" Height="200" />
         <MudCardContent>
             <MudText Align="Align.Center" Typo="Typo.h5">Pizza</MudText>
         </MudCardContent>
     </MudCard>
-    <MudCard Class="w-52 m-4">
+    <MudCard Class="cursor-pointer w-52 m-4" @onclick="@(() => OnCardClick("pane"))">
         <MudCardMedia Image="images/pane.png" Height="200" />
         <MudCardContent>
             <MudText Align="Align.Center" Typo="Typo.h5">Pane</MudText>
         </MudCardContent>
     </MudCard>
-    <MudCard Class="w-52 m-4">
+    <MudCard Class="cursor-pointer w-52 m-4" @onclick="@(() => OnCardClick("dolci"))">
         <MudCardMedia Image="images/dolce.png" Height="200" />
         <MudCardContent>
             <MudText Align="Align.Center" Typo="Typo.h5">Dolci</MudText>
         </MudCardContent>
     </MudCard>
 </MudContainer>
+
+@code {
+
+    public void OnCardClick(string value)
+    {
+        Navigation.NavigateTo($"/form/{value}");
+    }
+}

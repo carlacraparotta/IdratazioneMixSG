@@ -1,0 +1,19 @@
+<div class="flex flex-wrap">
+        <MudSelect Class="mx-5" T="string" Label="Seleziona il mix da usare" 
+                Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+                @foreach(var mix in Mixes)
+                {
+                    <MudSelectItem Value="@mix.Name" />
+                }
+        </MudSelect>
+
+        <MudTextField Class="mx-5" T="string" Label="Grammi" Variant="Variant.Outlined" />
+</div>
+
+@code {
+
+    [Parameter]
+    public List<Mix> Mixes { get; set; } = new();
+
+    public Ingredient Ingredient { get; set; } = new();
+}

@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Mix B Schar",
+        "minidration": 85,
+        "maxidration": 100
+    },
+    {
+        "name": "Nutrifree per pane",
+        "minidration": 75,
+        "maxidration": 100
+    },
+    {
+        "name": "Nutrifree per pizza",
+        "minidration": 90,
+        "maxidration": 100
+    },
+    {
+        "name": "Farmo Fibre Pan",
+        "minidration": 75,
+        "maxidration": 80
+    },
+    {
+        "name": "Revolution",
+        "minidration": 60,
+        "maxidration": 80
+    },
+    {
+        "name": "Fioreglut Caputo",
+        "minidration": 80,
+        "maxidration": 90
+    },
+    {
+        "name": "Mix It Schar",
+        "minidration": 65,
+        "maxidration": 70
+    }
+]
